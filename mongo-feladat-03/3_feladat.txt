@@ -1,14 +1,12 @@
 1. use videoStore
-2. db.movies.find({
-    $or: [
-       {category: "ACTION"},
-       {category: "ROMANTIC"}
-    ]
-}).count()
+2. db.movies.find({ $or: [
+	{category: "ACTION"},
+	{category: "ROMANTIC"}
+]}).count()
 3. fantasyMovies = db.movies.find({category: "FANTASY"}, {title: 1, category: 1, _id: 0})
 4. db.movies.find({}).forEach(movie => {
-    data = movie.title + ": " + movie.category
-    print(data)
+	data = movie.title + ": " + movie.category
+	print(data)
 })
 5. db.movies.find({}, {title: 1, _id: 0}).sort({_id: -1})
 6. db.movies.find({}, {title: 1, category: 1, releaseYear: 1, _id: 0}).sort({category: 1, releaseYear: -1})
