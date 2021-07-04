@@ -1,0 +1,28 @@
+1. db.createCollection("directors")
+2. db.directors.insertOne({_id: NumberInt(1), name: "Steven Spielberg", birthYear: NumberInt(1946), movies: []})
+db.directors.insertOne({_id: NumberInt(2), name: "Clint Eastwood", birthYear: NumberInt(1930), movies: []})
+db.directors.insertOne({_id: NumberInt(3), name: "James Cameron", birthYear: NumberInt(1954), movies: []})
+3. [nincs ilyen feladat]
+4. db.directors.find({}).forEach(director => { 
+   	directorID = director._id;
+   	directorName = director.name;
+   	movies = db.movies.find({director: directorName}, {_id: 1})
+    	movies.forEach(id => {
+        db.directors.updateOne({_id: directorID}, {$push: {movies: id._id}})
+})
+db.movies.find({}, {director: 1})
+5. db.directors.find().pretty()
+6. db.movies.updateMany({}, {$unset: {director: ""}})
+7. db.movies.find({releaseYear: {$lt: 2000}})
+db.movies.find({releaseYear: {$gt: 2000}})
+8. db.movies.find({releaseYear: {$gte: 1950}, releaseYear: {$lte: 2000}})
+db.movies.find({$and: [
+	{releaseYear: {$gte: 1950}},
+	{releaseYear: {$lte: 2000}}
+]})
+9. db.movies.find({$and: [
+  {releaseYear: {$gte: 1950}},
+  {releaseYear: {$lte: 2000}},
+  {category: "FANTASY"}
+]})
+10. db.movies.find({category: {$ne: "FANTASY"}})
