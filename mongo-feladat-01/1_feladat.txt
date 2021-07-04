@@ -1,5 +1,5 @@
 1. use videoStore
-2. db.createCollextion("movies")
+2. db.createCollection("movies")
 3. db.movies.save([
 	{title: "Titanic", category: "romantic", director: "James Cameron"},
 	{title: "Harmadik típusú találkozások", category: "fantasy", director: "Steven Spielberg"},
