@@ -1,0 +1,20 @@
+1. use videoStore
+2. db.createCollextion("movies")
+3. db.movies.save([
+	{title: "Titanic", category: "romantic", director: "James Cameron"},
+	{title: "Harmadik típusú találkozások", category: "fantasy", director: "Steven Spielberg"},
+	{title: "Szerelem korhatár nélkül", category: "romantic", director: "Clint Eastwood"},
+	{title: "Avatar", category: "fantasy", director: "James Cameron"},
+	{title: "E.T. - A földönkívüli", category: "fantasy", director: "Steven Spielberg"},
+	{title: "A szív hídjai", category: "romantic", director: "Clint Eastwood"},
+	{title: "Terminátor - A halálosztó", category: "action", director: "James Cameron"},
+	{title: "A.I. - Mesterséges értelem", category: "fantasy", director: "Steven Spielberg"},
+	{title: "Űrcowboyok", category: "action", director: "Clint Eastwood"},
+	{title: "A mélység titka", category: "fantasy", director: "James Cameron"}
+])
+4. db.movies.updateMany({}, {$set: {"ratings": []}})
+5. db.movies.updateOne({title: "Titanic"}, {$push: {ratings: {$each: [NumberInt(5), NumberInt(4)]}}})
+db.movies.updateOne({title: "A.I. - Mesterséges értelem"}, {$push: {ratings: {$each: [NumberInt(2), NumberInt(5)]}}})
+db.movies.updateOne({title: "A mélység titka"}, {$push: {ratings: {$each: [NumberInt(3), NumberInt(4)]}}})
+6. db.movies.updateMany({}, {$set: {releaseYear: NumberInt(2000)}})
+7. db.movies.updateMany({}, [{$set: {title: {$toUpper: "$title"}}}])
