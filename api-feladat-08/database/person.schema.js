@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const vaccineSchema = require('./vaccine.schema');
 		
 const PersonSchema = mongoose.Schema({
     firstName: String,
@@ -8,7 +7,7 @@ const PersonSchema = mongoose.Schema({
         count: Number,
         vaccine: {
             type: mongoose.Schema.Types.ObjectId,
-            reference: vaccineSchema
+            reference: 'Vaccine'
         }
     }
 }, {
