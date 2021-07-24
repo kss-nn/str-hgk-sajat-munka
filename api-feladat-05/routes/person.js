@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../database/person');
-const fsp = require('fs').promises;
 const createError = require('http-errors');
 const Person = require('../database/person.schema');
 
